@@ -1,4 +1,4 @@
-ALTER TABLE Student(
+CREATE TABLE Student(
 StudentID nvarchar(8) PRIMARY KEY,
 StudentName nvarchar(20),
 DoB date,
@@ -40,9 +40,11 @@ CREATE TABLE Student_Assessment(
 )
 
 CREATE TABLE [Group](
-	GroupID nvarchar(10) PRIMARY KEY,
+	GroupID nvarchar(10),
 	SemesterID nvarchar(10) FOREIGN KEY REFERENCES [Semester](SemesterID)
+	CONSTRAINT [PK_G] PRIMARY KEY (GroupID, SemesterID)
 )
+
 
 CREATE TABLE Group_Student(
 	GroupID nvarchar(10) FOREIGN KEY REFERENCES [Group](GroupID),
