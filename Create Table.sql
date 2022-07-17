@@ -57,3 +57,10 @@ CREATE TABLE Group_Lecture(
 	LectureID nvarchar(8) FOREIGN KEY REFERENCES [Lecture](LectureID)
 	CONSTRAINT [PK_GL] PRIMARY KEY (GroupID, LectureID)
 )
+
+CREATE TABLE Attendance(
+	SessionID nvarchar(10),
+	StudentID nvarchar(8) FOREIGN KEY REFERENCES [Student](StudentID),
+	AttendPercent int
+	CONSTRAINT [PK_AT] PRIMARY KEY (SessionID, StudentID)
+)
